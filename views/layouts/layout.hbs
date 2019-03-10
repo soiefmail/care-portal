@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    {{> titlebar}}
+    {{> header}}
+    {{{body}}}
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  {{> footer}}  
+  </body>
+  <script src="/javascripts/patienthub.js"></script>
+</html>

@@ -1,0 +1,49 @@
+<div class="container-fluid border pt-2 pb-2 pr-4 pl-4 print-container">
+    <div class="row">
+        <div class="col h3 text-center">CONSENT ON PACKAGE OFFERED</div>
+    </div>
+
+    <div class="row">
+        <div class="col border p-2">
+            <span>Patient Name: </span>
+            <span class="lead">{{patientObj.patientName}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Pt. Reg. Id: </span>
+            <span class="lead">{{patientObj.regId}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Package Offered By: </span>
+            {{#if patientObj.packageOfferedBy}}            
+            <span class="lead">{{patientObj.packageOfferedBy}}</span>
+            {{else}}
+            <span class="lead">{{loggedInUser}}</span>
+            {{/if}}                     
+        </div>
+    </div>
+
+    <div class="row mt-1">
+        <div class="col h5 text-center bg-light">PACKAGE DETAILS</div>
+    </div>
+
+    <div class="row">
+        <div class="col border p-2">
+            <span>Package: </span>
+            <span class="lead">{{patientObj.packagetextarea}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Total Package Amount: </span>
+            <span class="lead">{{patientObj.packageAmount}}</span>
+        </div>
+    </div>
+
+
+    <div class="mt-5 p-3 mb-4">
+        <div class="row">
+            <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Party Signature</div>
+            <div class="col"></div>
+            <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Authorized Signature</div>
+        </div>
+    </div>
+
+</div>

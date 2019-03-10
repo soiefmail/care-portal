@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>All Invoice Details</h1>
+    <div class="row border border-dark font-weight-bold">
+        <div class="col-2 text-center">Date</div>
+        <div class="col-8">Invoice</div>
+        <div class="col-2 text-center">Action</div>
+    </div>
+    {{#each invoiceObj}}
+    <div class="row border border-dark">
+        <div class="col-2 d-flex"><span class="invoice-date justify-content-center align-self-center m-auto">{{this.invoiceDate}}</span></div>
+        <div class="col-8 p-3 particulars">
+            <div class="particulars-table-header">
+                <div class="row">
+                    <div class="col-1 border text-right">SL</div>
+                    <div class="col-8 border">Particulars</div>
+                    <div class="col-1 border">QTY</div>
+                    <div class="col-2 border">Amount</div>
+                </div>
+            </div>
+            {{#each this.particularsList}}
+                <div>
+                    <div class="row">
+                        <div class="col-1 border text-right pt-1 pb-1">{{this.sl}}</div>
+                        <div class="col-8 border pt-1 pb-1 item">{{this.particular}}</div> 
+                        <div class="col-1 border pt-1 pb-1 qty">{{this.qty}}</div>
+                        <div class="col-2 border pt-1 pb-1 amount">{{this.amount}}</div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-2 d-flex">
+            <button class="printInvoice btn btn-primary justify-content-center align-self-center m-auto">Print</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+{{>invoice-print}}

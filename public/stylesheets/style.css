@@ -1,0 +1,112 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#title-bar{
+  margin-bottom: 2rem;
+}
+
+#patientaddr {
+  border: 0.1px solid #e0e0e0;
+  padding: 21px;
+  margin-bottom: 1rem;
+}
+
+.red-color {
+  color: red;
+}
+
+
+/* index page circles */
+.block {
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+}
+.circle {
+  border-radius: 150px;
+  color: white;
+  height: 150px;
+  font-weight: bold;
+  width: 150px;
+  display: table;
+  margin: 20px auto;
+  border: 3px solid black;
+}
+.circle p {
+  vertical-align: middle;
+  display: table-cell;
+}
+.round-1 {
+  background: grey;
+}
+.round-2 {
+  background: #c35050;
+}
+.round-3 {
+  background: #4a8ed8;
+}
+.round-4 {
+  background: #5bb770;
+}
+.round-5 {
+  background: #b19c5f;
+}
+.round-6 {
+  background: #18222b;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px !important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 93%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+
+/*print container*/
+.print-container{
+  line-height: 35px;
+}
+
+/*thanks greet*/
+.greet-circle {
+  display: inline-block;
+  width: 113px;
+  height: 32px;
+  background-color: #4e4b4b85;
+}
+
+.big-checkbox{
+  transform: scale(1.5);
+}

@@ -1,0 +1,145 @@
+<div class="container ">
+
+    <div class="text-center h4">Invoice</div>
+    <form>
+        <div class="form-row">
+             <div class="form-group col-md-6">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="regId">Registration Id</label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="modifiedBy">Modified By</label>
+                {{#if invoiceDocs.modifiedBy}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{invoiceDocs.modifiedBy}}" readonly />
+                {{else}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{loggedInUser}}" readonly />
+                {{/if}}
+            </div>
+            <input type="hidden" id="invoicedate" name="invoicedate" class="form-control" value="{{patientObj.invoiceDate}}" readonly />
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="packageOffered">Package Agreement amount</label>
+                <input type="text" id="packageOffered" name="packageOffered" class="form-control" value="{{patientObj.packageAmount}}" readonly />
+            </div>
+             <div class="form-group col-md-6">
+                <label for="paymenttype">Payment Type</label>
+                <select id="paymenttype" name="paymentType" class="form-control" readonly >
+                    <option value="{{patientObj.paymentType}}" selected>{{patientObj.paymentType}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <p><span class="text-align-top text-success"><b>Note: </b>Once saved, cannot edit after that</span></p>
+        </div>
+        <div class="form-row">
+            <p class="h5">Enter Particulars</p>
+        </div>
+        <div id="particulars-table-header">
+            <div class="row font-weight-bold">
+                <div class="col-1 border text-right">SL</div>
+                <div class="col-6 border">Particulars</div>
+                <div class="col-1 border">Days</div>
+                <div class="col-1 border">Rate</div>
+                <div class="col-1 border">QTY</div>
+                <div class="col-2 border">Amount</div>
+            </div>
+        </div>
+        
+        <div id="particulars">
+            {{#if invoiceDocs}}
+                {{#each invoiceDocs.particularsList }}
+                    <div class="row">
+                        <div class="col-1 border text-right pt-1 pb-1">{{this.sl}}.</div>
+                        <div class="col-6 border pt-1 pb-1 item">{{this.particular}}</div>
+                        <div class="col-1 border pt-1 pb-1 day">{{this.day}}</div>
+                        <div class="col-1 border pt-1 pb-1 rate">{{this.rate}}</div>
+                        <div class="col-1 border pt-1 pb-1 qty">{{this.qty}}</div>
+                        <div class="col-2 border pt-1 pb-1 amount">{{this.amount}}</div>
+                    </div>
+                {{/each}}
+                {{#math "1" "+" invoiceDocs.particularsList.length }}
+                    {{#times this 16}}
+                        <div class="row">
+                            <div class="col-1 border text-right pt-1 pb-1">{{this}}.</div>
+                            <div contenteditable="true" class="col-6 border pt-1 pb-1 item"></div>
+                            <div contenteditable="true" class="col-1 border pt-1 pb-1 day"></div>
+                            <div contenteditable="true" class="col-1 border pt-1 pb-1 rate"></div>
+                            <div contenteditable="true" class="col-1 border pt-1 pb-1 qty"></div>
+                            <div contenteditable="true" class="col-2 border pt-1 pb-1 amount"></div>
+                        </div>
+                    {{/times}}
+                {{/math}}
+
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total:</b></div>
+                    <div id="totalAmount" class="col-2 border pt-1 pb-1">{{invoiceDocs.totalAmount}}</div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Advance:</b></div>
+                        <div id="advanceAmount" class="col-2 border pt-1 pb-1">{{advanceDocs.totalAdvance}}</div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Payable Amount:</b></div>
+                        <div id="payableAmount" class="col-2 border pt-1 pb-1">{{invoiceDocs.payableAmount}}</div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Amount Paid:</b></div>
+                        <div contenteditable="true" id="paidAmount" class="col-2 border pt-1 pb-1">{{invoiceDocs.paidAmount}}</div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Due:</b></div>
+                        <div id="dueAmount" class="col-2 border pt-1 pb-1">{{invoiceDocs.dueAmount}}</div>                                   
+                </div>
+            {{else}}
+                {{#times 1 16}}
+                    <div class="row">
+                        <div class="col-1 border text-right pt-1 pb-1">{{this}}.</div>
+                        <div contenteditable="true" class="col-6 border pt-1 pb-1 item"></div>
+                        <div contenteditable="true" class="col-1 border pt-1 pb-1 day"></div>
+                        <div contenteditable="true" class="col-1 border pt-1 pb-1 rate"></div>
+                        <div contenteditable="true" class="col-1 border pt-1 pb-1 qty"></div>
+                        <div contenteditable="true" class="col-2 border pt-1 pb-1 amount"></div>
+                    </div>
+                {{/times}}
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total:</b></div>
+                    <div id="totalAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Advance:</b></div>
+                        <div id="advanceAmount" class="col-2 border pt-1 pb-1">{{advanceDocs.totalAdvance}}</div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Payable Amount:</b></div>
+                        <div id="payableAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Amount Paid:</b></div>
+                        <div contenteditable="true" id="paidAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+                <div class="row calc">
+                        <div class="col-10 pt-1 pb-1 text-right"><b>Due:</b></div>
+                        <div id="dueAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="form-row mt-2">
+            <button onclick="printPage('printableArea')" class="btn btn-primary btn-lg m-auto">Save and Print Invoice</button>
+        </div>
+        <div class="row mt-2 d-none" id="updateduebtn">
+            <a href="/due" value="Update Due" class="btn btn-primary m-auto btn-lg">Update Due</a>                   
+        </div>
+        <div class="form-row mt-2">
+            <div id="savemessage" class="m-auto h5"></div>
+        </div>
+    </form>
+
+</div>
+{{>invoice-print}}

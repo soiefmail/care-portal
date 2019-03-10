@@ -1,0 +1,76 @@
+<div id="printableArea" class="d-none">
+    <div class="row">
+        <div class="col h2 text-center">INVOICE</div>
+    </div>
+    {{>titlebar}}
+    <div class="row">
+        <div class="col h5 blockquote text-center">Any Complain or grievance call 9733055768</div>
+    </div>
+    <div class="container border pt-2 pb-2 pr-4 pl-4">
+        <div class="row">
+            <div class="col-6 border">
+                <span>Patient Name: </span>
+                <span class="lead">{{patientObj.patientName}}</span>
+            </div>
+            <div class="col border">
+                <span>Age: </span>
+                <span class="lead">{{patientObj.age}}</span>
+            </div>
+            <div class="col border">
+                <span>Sex: </span>
+                <span class="lead">{{patientObj.sex}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <span>Address: </span>
+                <span class="lead">{{patientObj.village}}, {{patientObj.postOffice}}, {{patientObj.district}}, {{patientObj.state}}</span>
+            </div>
+            <div class="col-4 border">
+                <span>Contact No: </span>
+                <span class="lead">{{patientObj.primaryPhoneNo}}</span>
+            </div>
+        </div>
+        <div class="row">      
+            <div class="col border">
+                <span>Pt.Reg No: </span>
+                <span class="lead">{{patientObj.registrationid}}</span>
+            </div>
+            <div class="col border">
+                <span>Date: </span>
+                <span class="lead" id="invoice-date">{{patientObj.invoiceDate}}</span>
+            </div>
+            <div class="col border">
+                <span>Payment Type: </span>
+                <span class="lead">{{patientObj.paymentType}}</span>
+            </div>
+            <div class="col border">
+                <span>Modified By: </span>
+                {{#if invoiceDocs.modifiedBy}}
+                <span class="lead">{{invoiceDocs.modifiedBy}}</span>
+                {{else}}
+                <span class="lead">{{loggedInUser}}</span>
+                {{/if}}
+            </div>  
+        </div>
+    </div>
+
+    <div class="container border mt-3 pt-2 pb-2 pr-4 pl-4">
+        <div id="particulars-table"></div>
+    </div>
+
+    <div class="container pt-2 pb-2 pr-4 pl-4">
+        <div class="mt-1 p-3 mb-4">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-3 text-center">Note: Any case may be file within the jurisdiction under Rampurhat Sub-division.</div>
+                <div class="col"></div>
+            </div>
+            <div class="row mt-2">
+                <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Patient’s Party Signature</div>
+                <div class="col text-center"><span class="h4 rounded-circle border border-dark greet-circle">Thanks</span></div>
+                <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Authorized Signature</div>
+            </div>
+        </div>
+    </div>
+</div>

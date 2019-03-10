@@ -1,0 +1,15 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <span class="text-muted">Developed By Soief Ali.</span>
+      </div>
+      <div class="col text-center">Welcome {{loggedInUser}}</div>
+      <div class="col">
+        {{#if loggedInUser}}
+        <a href="/logout" class="btn btn-secondary float-right mt-2">Log Out</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</footer>

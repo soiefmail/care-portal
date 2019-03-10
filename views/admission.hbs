@@ -1,0 +1,226 @@
+<div class="container ">
+
+    <h4>Fill in the details for patient admission</h4>
+    <div id="form-msg">asterisk symbols(<span class="text-align-top red-color">&nbsp;*</span>&nbsp;) are mandatory</div>
+    <form action="/admit" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="regId">Registration Id<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="admitDate">Date of Admission<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="admitDate" name="admitDate" class="form-control" value="{{patientObj.admitDate}}" readonly />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="modifiedBy">Modified By<span class="text-align-top red-color">&nbsp;*</span></label>
+                {{#if patientObj.isAdmitted}}                
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{patientObj.modifiedBy}}" readonly />
+                {{else}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{loggedInUser}}" readonly />
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="patientname">Patient Name<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="underdoc">Under Doctor<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="underdoc" name="underdoc" class="form-control" value="{{patientObj.underDoctor}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sufferfrom">Suffereing From Disease<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="sufferfrom" name="sufferfrom" class="form-control" value="{{patientObj.sufferingFrom}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="gender">Sex<span class="text-align-top red-color">&nbsp;*</span></label>
+                <select id="gender" class="form-control" name="sex" readonly >
+                    <option value="{{patientObj.sex}}" selected>{{patientObj.sex}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="age">Age<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="number" id="age" name="age" class="form-control" value="{{patientObj.age}}" readonly />
+            </div>
+        </div>
+
+         <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="guardianName">Guardian Name<span class="text-align-top red-color">&nbsp;*</span></label>
+                {{#if patientObj.isAdmitted}}
+                    <input type="text" id="guardianName" name="guardianName" class="form-control" value="{{patientObj.guardianName}}" readonly />
+                {{else}}
+                    <input type="text" id="guardianName" name="guardianName" class="form-control" required />
+                {{/if}}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="relWithGuardian">Relation with Guardian<span class="text-align-top red-color">&nbsp;*</span></label>
+                {{#if patientObj.isAdmitted}}
+                    <select id="relWithGuardian" name="relWithGuardian" class="form-control" readonly >
+                        <option value="{{patientObj.realationWithGuardian}}" selected>{{patientObj.realationWithGuardian}}</option>
+                    </select>
+                {{else}}
+                    <select id="relWithGuardian" name="relWithGuardian" class="form-control" required >
+                        <option value="" selected>Choose...</option>
+                        <option value="Father">Father</option>
+                        <option value="Husband">Husband</option>
+                    </select>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="whoBought">Who Bought the Patient<span class="text-align-top red-color">&nbsp;*</span></label>
+                 {{#if patientObj.isAdmitted}}
+                    <input type="text" id="whoBought" name="whoBought" class="form-control" value="{{patientObj.whoBoughtPatient}}" readonly />
+                {{else}}
+                    <input type="text" id="whoBought" name="whoBought" class="form-control" required />
+                {{/if}}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="relWhoBought">And Relation with Patient<span class="text-align-top red-color">&nbsp;*</span></label>
+                {{#if patientObj.isAdmitted}}
+                    <select id="relWhoBought" name="relWhoBought" class="form-control" readonly>
+                        <option value="{{patientObj.relationWithPatient}}" selected>{{patientObj.relationWithPatient}}</option>
+                    </select>
+                {{else}}
+                    <select id="relWhoBought" name="relWhoBought" class="form-control" required>
+                        <option value="" selected>Choose...</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Husband">Husband</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Son">Son</option>
+                        <option value="Daughter">Daughter</option>
+                        <option value="Brother">Brother</option>
+                        <option value="Sister">Sister</option>
+                        <option value="Other">Other</option>
+                    </select>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aadhar">Aadhar No / Social Security Id<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="aadhar" name="aadhar" class="form-control" value="{{patientObj.aadharVoterId}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="paymenttype">Payment Type<span class="text-align-top red-color">&nbsp;*</span></label>
+                <select id="paymenttype" name="paymentType" class="form-control" readonly >
+                    <option value="{{patientObj.paymentType}}" selected>{{patientObj.paymentType}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="admittype">Patient Admission Type<span class="text-align-top red-color">&nbsp;*</span></label>
+                <select id="admittype" name="admissionType" class="form-control" readonly >
+                    <option value="{{patientObj.admissionType}}" selected>{{patientObj.admissionType}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="patientaddr">
+            <p>Patient's address and phone number</p>
+            <div class="form-group">
+                <label for="village">Village<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="village" name="village" class="form-control" value="{{patientObj.village}}" readonly />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="po">Post Office<span class="text-align-top red-color">&nbsp;*</span></label>
+                    <input type="text" id="po" name="po" class="form-control" value="{{patientObj.postOffice}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ps">Police Station</label>
+                    <input type="text" id="ps" name="ps" class="form-control" value="{{patientObj.policeStation}}" readonly />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dist">District<span class="text-align-top red-color">&nbsp;*</span></label>
+                    <input type="text" id="dist" name="dist" class="form-control" value="{{patientObj.district}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="state">State<span class="text-align-top red-color">&nbsp;*</span></label>
+                    <select id="state" name="state" class="form-control" readonly >
+                        <option value="{{patientObj.state}}" selected>{{patientObj.state}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="pphone">Phone Number (Primary)<span class="text-align-top red-color">&nbsp;*</span></label>
+                    <input type="number" id="pphone" name="pphone" class="form-control" value="{{patientObj.primaryPhoneNo}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sphone">Secondary Phone Number (Optional)</label>
+                    <input type="number" id="sphone" name="sphone" class="form-control" value="{{patientObj.secondaryPhoneNo}}" readonly />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" class="form-control" value="{{patientObj.email}}" readonly />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="packageOffered">Package Offered</label>
+                <input type="text" id="packageOffered" name="packageOffered" class="form-control" value="{{patientObj.packageAmount}}" readonly />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="advance">Advance Paid at the time of admission</label>
+                {{#if patientObj.isAdmitted}}
+                    <input type="text" id="advance" name="advance" class="form-control" value="{{patientObj.advanceAmount}}" readonly />
+                {{else}}
+                    <input type="text" id="advance" name="advance" class="form-control" value="" placeholder="Enter advance amount paid by party" />
+                {{/if}}
+                <!--<p><b>Note: </b>If Patient party pay advance here then update advance page</p>-->
+            </div>
+        </div>
+
+         <div class="form-row">
+            {{#if patientObj.isAdmitted}}
+                <div class="form-group col-md-6">
+                    <label for="referer">Referer Name</label>
+                    <input type="text" id="referer" name="referer" class="form-control" value="{{patientObj.referer}}" readonly/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="refererAmount">Referer Phone No</label>
+                        <input type="text" id="refererPhone" name="refererPhone" class="form-control" value="{{patientObj.refererPhone}}" readonly />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="refererAmount">Referer Amount</label>
+                        <input type="text" id="refererAmount" name="refererAmount" class="form-control" value="{{patientObj.refererAmount}}" readonly />
+                </div>
+            {{else}}
+                <div class="form-group col-md-6">
+                    <label for="referer">Referer Name</label>
+                    <input type="text" id="referer" name="referer" class="form-control" value=""/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="refererAmount">Referer Phone No</label>
+                    <input type="number" id="refererPhone" name="refererPhone" class="form-control" value="" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="refererAmount">Referer Amount</label>
+                    <input type="number" id="refererAmount" name="refererAmount" class="form-control" value="" />
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Admit Patient</button>
+        </div>
+    </form>
+
+</div>

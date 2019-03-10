@@ -1,0 +1,190 @@
+<div class="container ">
+
+    <h4>Fill in the details for new registration</h4>
+    <div id="form-msg">asterisk symbols(
+        <span class="text-align-top red-color">&nbsp;*</span>&nbsp;) are mandatory</div>
+    <form action="/register" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="regId">Registration Id
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{regId}}" readonly/>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="registrationDate">Date of Registration
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="registrationDate" name="registrationDate" class="form-control" value="{{registrationDate}}" readonly/>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="patientname">Patient Name
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="patientname" name="patientname" class="form-control" required />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="underdoc">Under Doctor
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="underdoc" name="underdoc" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sufferfrom">Suffereing From Disease
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="sufferfrom" name="sufferfrom" class="form-control" required />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="gender">Sex
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <select id="gender" name="sex" class="form-control" required>
+                    <option value="" selected>Choose...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Transgender</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="age">Age
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="number" id="age" name="age" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="aadhar">Aadhar No / Social Security Id
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="aadhar" name="aadhar" class="form-control" required />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="admittype">Patient Admission Type
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <select id="admittype" name="" class="form-control" disabled>
+                    <option value="IPD" selected>IPD</option>
+                </select>
+                <input type="hidden" name="admissionType" value="IPD" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="paymenttype">Payment Type
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <select id="paymenttype" name="paymentType" class="form-control" required>
+                    <option value="Cash" selected>Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" id="otherpaymenttype" name="otherpaymenttype" class="form-control d-none" placeholder="Specify payment type"
+                />
+            </div>
+        </div>
+
+        <div id="patientaddr">
+            <p>Please specify patient's address and phone number</p>
+            <div class="form-group">
+                <label for="village">Village
+                    <span class="text-align-top red-color">&nbsp;*</span>
+                </label>
+                <input type="text" id="village" name="village" class="form-control" required />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="po">Post Office
+                        <span class="text-align-top red-color">&nbsp;*</span>
+                    </label>
+                    <input type="text" id="po" name="po" class="form-control" required />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ps">Police Station</label>
+                    <input type="text" id="ps" name="ps" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dist">District
+                        <span class="text-align-top red-color">&nbsp;*</span>
+                    </label>
+                    <input type="text" id="dist" name="dist" class="form-control" required />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="state">State
+                        <span class="text-align-top red-color">&nbsp;*</span>
+                    </label>
+                    <select id="state" name="state" class="form-control" required>
+                        <option value="" selected>------------Select State------------</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Orissa">Orissa</option>
+                        <option value="Pondicherry">Pondicherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttaranchal">Uttaranchal</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="pphone">Phone Number (Primary)
+                        <span class="text-align-top red-color">&nbsp;*</span>
+                    </label>
+                    <input type="number" id="pphone" name="pphone" class="form-control" required />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sphone">Secondary Phone Number (Optional)</label>
+                    <input type="number" id="sphone" name="sphone" class="form-control" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="string" id="email" name="email" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Register</button>
+        </div>
+
+    </form>
+
+</div>

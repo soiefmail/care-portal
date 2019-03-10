@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row pt-4">
+        <p class="h3 m-auto">Patient's Aadhar / Social Security Id</p>
+    </div>
+    <form action="/putidentification" method="post">
+        <div class="row pt-4">
+            <div class="m-auto col-4">
+                <input type="text" id="aadhar" name="aadhar" class="form-control" value="{{patientObj.aadharVoterId}}" />
+                <input type="hidden" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" />
+            </div>
+        </div>
+        <div class="row pt-4">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Update</button>
+        </div>
+    </form>
+    <div class="row pt-4">
+        <p class="h3 m-auto">{{updateMessage}}</p>
+    </div>
+</div>

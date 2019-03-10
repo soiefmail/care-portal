@@ -1,0 +1,67 @@
+<div class="container ">
+
+    <h4>Fill in the package details</h4>
+    <form action="/package" method="post">
+        <div class="form-row">
+             <div class="form-group col-md-6">
+                <label for="patientname">Patient Name<span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="regId">Registration Id</label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="packageOfferedBy">Package Offered By</label>
+                <input type="text" id="packageOfferedBy" name="packageOfferedBy" class="form-control" value="{{loggedInUser}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="packagetextarea">Package</label>
+                <textarea name="packagetextarea" id="packagetextarea" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="packageAmount">Total Package Amount</label>
+                <input type="number" id="packageAmount" name="packageAmount" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Done</button>
+        </div>
+    </form>
+
+    {{#if packageHistoryObj}}
+    <section class="mt-3">
+        <div class="row">
+            <div class="col border p-2">
+                <span class="h5 p-2">Package History</span>
+            </div>
+        </div>
+        <div class="row border p-4">
+            <table class="table table-responsive-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Package Amount</th>
+                        <th>Package Offered By</th>
+                        <th>Package Offered Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each packageHistoryObj}}
+                        <tr>
+                            <td><span>{{this.packageTextarea}}</span></td>
+                            <td><span>{{this.packageAmount}}</span></td>
+                            <td><span>{{this.packageOfferedBy}}</span></td>
+                            <td><span>{{this.packageOfferedDate}}</span></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    {{/if}}
+</div>

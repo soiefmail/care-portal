@@ -1,0 +1,131 @@
+<div class="container">
+
+    <div class="text-center h4">Patient Discharge</div>
+    <form action="/discharge" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="regId">Registration Id</label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dischargeDate">Date of Discharge</label>
+                <input type="text" id="dischargeDate" name="dischargeDate" class="form-control" value="{{patientObj.dischargeDate}}" readonly />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dischargedBy">Discharged By</label>
+                {{#if patientObj.isDischarged}}
+                <input type="text" id="dischargedBy" name="dischargedBy" class="form-control" value="{{patientObj.dischargedBy}}" readonly />
+                {{else}}
+                <input type="text" id="dischargedBy" name="dischargedBy" class="form-control" value="{{loggedInUser}}" readonly />
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="underdoc">Under Doctor</label>
+                <input type="text" id="underdoc" name="underdoc" class="form-control" value="{{patientObj.underDoctor}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="sufferfrom">Suffereing From Disease</label>
+                <input type="text" id="sufferfrom" name="sufferfrom" class="form-control" value="{{patientObj.sufferingFrom}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="gender">Sex</label>
+                <select id="gender" class="form-control" name="sex" readonly >
+                    <option value="{{patientObj.sex}}" selected>{{patientObj.sex}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" class="form-control" value="{{patientObj.age}}" readonly />
+            </div>
+        </div>
+
+         <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="management">Management</label>
+                {{#if patientObj.isDischarged}}
+                    <input type="text" id="management" name="management" class="form-control" value="{{patientObj.management}}" readonly />
+                {{else}}
+                    <input type="text" id="management" name="management" class="form-control" />
+                {{/if}}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="admitDate">Date of Admission</label>
+                <input type="text" id="admitDate" name="admitDate" class="form-control" value="{{patientObj.admitDate}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="guardianName">Guardian Name</label>
+                <input type="text" id="guardianName" name="guardianName" class="form-control" value="{{patientObj.guardianName}}" readonly />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="gender">Relation with Guardian</label>
+                <select id="gender" name="relWithGuardian" class="form-control" readonly >
+                    <option value="{{patientObj.realationWithGuardian}}" selected>{{patientObj.realationWithGuardian}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="patientaddr">
+            <p>Please specify patient's address and phone number</p>
+            <div class="form-group">
+                <label for="village">Village</label>
+                <input type="text" id="village" name="village" class="form-control" value="{{patientObj.village}}" readonly />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="po">Post Office</label>
+                    <input type="text" id="po" name="po" class="form-control" value="{{patientObj.postOffice}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ps">Police Station</label>
+                    <input type="text" id="ps" name="ps" class="form-control" value="{{patientObj.policeStation}}" readonly />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dist">District</label>
+                    <input type="text" id="dist" name="dist" class="form-control" value="{{patientObj.district}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="state">State</label>
+                    <select id="state" name="state" class="form-control" readonly >
+                        <option value="{{patientObj.state}}" selected>{{patientObj.state}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="pphone">Phone Number (Primary)</label>
+                    <input type="number" id="pphone" name="pphone" class="form-control" value="{{patientObj.primaryPhoneNo}}" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sphone">Secondary Phone Number (Optional)</label>
+                    <input type="number" id="sphone" name="sphone" class="form-control" value="{{patientObj.secondaryPhoneNo}}" readonly />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" class="form-control" value="{{patientObj.email}}" readonly />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Discharge</button>
+        </div>
+    </form>
+
+</div>

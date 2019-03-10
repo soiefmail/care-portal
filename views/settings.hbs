@@ -1,0 +1,339 @@
+<div class="container">
+   <div class="row mt-2">
+        {{#if message}}
+        <div class="col-md-4 col-md-offset-4 m-auto alert alert-info text-center">
+            <h4>{{message}}</h4>
+        </div>
+        {{/if}}
+    </div>
+    <p class="h1">Settings</p>
+    <section>
+        <div class="row">
+            <div class="col border p-2">
+                <span class="h5 p-2">Memory Allocation</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">Patient DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.patientCollectionSize}}</span>
+                </p>
+            </div>
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">Invoice DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.invoiceStorageSize}}</span>
+                </p>
+            </div>
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">Advance DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.advanceStorageSize}}</span>
+                </p>
+            </div>
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">Due DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.dueStorageSize}}</span>
+                </p>
+            </div>
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">User DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.userStorageSize}}</span>
+                </p>
+            </div>
+            <div class="col border text-center">
+                <p class="bg-info text-white p-2">Package DB Size:</p>
+                <p>
+                    <span class="h6">{{memorySizes.packageHistoryStorageSize}}</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-3">
+        <div class="row">
+            <div class="col border p-2">
+                <span class="h5 p-2">Delete a Patient</span>
+            </div>
+        </div>
+        <div class="row border p-4">
+            <form id="deletePatient" class="form-inline" action="/settings" method="post">
+                <label for="regIdDelete" class="mb-2 mr-sm-2">Patient Reg. Id</label>
+                <input type="text" name="regIdDelete" class="regId form-control mb-2 mr-sm-2">
+                <button type="submit" class="btn btn-danger mb-2">Delete Patient</button>
+            </form>
+        </div>
+        {{#if regIdToDelete}}
+         <div class="row border p-4">
+            <div class="col-12">
+                <p>
+                    <span class="h5">Pt. Reg. Id: </span><span class="p-2 border border-dark">{{regIdToDelete}}</span>
+                    <span class="h5">Patient Name: </span><span class="p-2 border border-dark">{{ptNameToDelete}}</span>
+                </p>
+                <p class="h5">Do you really want to Delete this patient?</p>
+            </div>
+            <div class="col-12 mt-2">
+                <form action="/settings" method="post">
+                    <input type="hidden" name="deleteConf" value="true">
+                    <input type="hidden" name="ptRegIdToDelete" value="{{regIdToDelete}}">
+                    <input type="hidden" name="ptNameToDelete" value="{{ptNameToDelete}}">
+                    <button type="submit" class="btn btn-danger btn-lg ml-auto">Yes</button>
+                    <a href="/settings" class="btn btn-secondary btn-lg mr-auto">No</a>
+                </form>
+            </div>
+        </div>        
+        {{/if}}
+    </section>
+
+    <section class="mt-3">
+        <div class="row">
+            <div class="col border p-2">
+                <span class="h5 p-2">Patient Details Updation</span>
+            </div>
+        </div>
+        <div class="row border p-4">
+            <form id="updatePatient" class="form-inline" action="/settings" method="post">
+                <label for="regIdUpdate" class="mb-2 mr-sm-2">Patient Reg. Id</label>
+                <input type="text" name="regIdUpdate" class="regId form-control mb-2 mr-sm-2">
+                <label class="mb-2 mr-sm-2"> OR, </label>
+                <label for="phoneUpdate" class="mb-2 mr-sm-2">Mobile No</label>
+                <input type="number" name="phoneUpdate" class="phone form-control mb-2 mr-sm-2">
+                <button type="submit" class="btn btn-primary mb-2">Search Patient</button>
+            </form>
+        </div>
+        {{#if patientObj}}
+        <div class="border p-4">
+            <form action="/settings" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="regId">Registration Id<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="isAdmitted">Is The Patient Admitted? </label>
+                        {{#if patientObj.isAdmitted}}
+                        <input type="text" id="isAdmitted" name="isAdmitted" class="form-control" value="Yes" /> {{else}}
+                        <input type="text" id="isAdmitted" name="isAdmitted" class="form-control" value="No" /> {{/if}}
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="isDischarged">Is The Patient Discharged? </label>
+                        {{#if patientObj.isDischarged}}
+                        <input type="text" id="isDischarged" name="isDischarged" class="form-control" value="Yes" /> {{else}}
+                        <input type="text" id="isDischarged" name="isDischarged" class="form-control" value="No" /> {{/if}}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="regDate">Date of Registration </label>
+                        <input type="text" id="regDate" name="regDate" class="form-control" value="{{patientObj.registrationDate}}" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="admitDate">Date of Admission </label>
+                        <input type="text" id="admitDate" name="admitDate" class="form-control" value="{{patientObj.admitDate}}" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="dischargeDate">Date of Discharge </label>
+                        <input type="text" id="dischargeDate" name="dischargeDate" class="form-control" value="{{patientObj.dischargeDate}}" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="patientname">Patient Name<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" required />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="underdoc">Under Doctor<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="underdoc" name="underdoc" class="form-control" value="{{patientObj.underDoctor}}" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="sufferfrom">Suffereing From Disease<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="sufferfrom" name="sufferfrom" class="form-control" value="{{patientObj.sufferingFrom}}" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="gender">Sex<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="gender" name="gender" class="form-control" value="{{patientObj.sex}}" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="age">Age<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="age" name="age" class="form-control" value="{{patientObj.age}}" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="guardianName">Guardian Name </label>
+                        <input type="text" id="guardianName" name="guardianName" class="form-control" value="{{patientObj.guardianName}}" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="relWithGuardian">Relation with Guardian </label>
+                        <input type="text" id="relWithGuardian" name="relWithGuardian" class="form-control" value="{{patientObj.realationWithGuardian}}"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="whoBought">Who Bought the Patient </label>
+                        <input type="text" id="whoBought" name="whoBought" class="form-control" value="{{patientObj.whoBoughtPatient}}" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="relWhoBought">And Relation with Patient </label>
+                        <input type="text" id="relWhoBought" name="relWhoBought" class="form-control" value="{{patientObj.relationWithPatient}}"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="aadhar">Aadhar No / Social Security Id<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="aadhar" name="aadhar" class="form-control" value="{{patientObj.aadharVoterId}}" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="management">Management </label>
+                        <input type="text" id="management" name="management" class="form-control" value="{{patientObj.management}}" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="paymenttype">Payment Type<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="paymenttype" name="paymenttype" class="form-control" value="{{patientObj.paymentType}}" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="admittype">Patient Admission Type<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="admittype" name="admittype" class="form-control" value="{{patientObj.admissionType}}" required />
+                    </div>
+                </div>
+
+                <div id="patientaddr">
+                    <p>Patient's address and phone number</p>
+                    <div class="form-group">
+                        <label for="village">Village<span class="text-align-top red-color">&nbsp;*</span> </label>
+                        <input type="text" id="village" name="village" class="form-control" value="{{patientObj.village}}" required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="po">Post Office<span class="text-align-top red-color">&nbsp;*</span> </label>
+                            <input type="text" id="po" name="po" class="form-control" value="{{patientObj.postOffice}}" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ps">Police Station</label>
+                            <input type="text" id="ps" name="ps" class="form-control" value="{{patientObj.policeStation}}" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dist">District<span class="text-align-top red-color">&nbsp;*</span> </label>
+                            <input type="text" id="dist" name="dist" class="form-control" value="{{patientObj.district}}" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="state">State<span class="text-align-top red-color">&nbsp;*</span> </label>
+                            <input type="text" id="state" name="state" class="form-control" value="{{patientObj.state}}" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="pphone">Phone Number (Primary)<span class="text-align-top red-color">&nbsp;*</span> </label>
+                            <input type="text" id="pphone" name="pphone" class="form-control" value="{{patientObj.primaryPhoneNo}}" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="sphone">Secondary Phone Number (Optional)</label>
+                            <input type="text" id="sphone" name="sphone" class="form-control" value="{{patientObj.secondaryPhoneNo}}" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" class="form-control" value="{{patientObj.email}}" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="packagetextarea">Package</label>
+                        <textarea name="packagetextarea" id="packagetextarea" class="form-control" rows="10">{{patientObj.packagetextarea}}</textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="packageAmount">Total Package Amount</label>
+                        <input type="number" id="packageAmount" name="packageAmount" class="form-control" value="{{patientObj.packageAmount}}" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="packageOfferedBy">Package Offered By</label>
+                        <input type="text" id="packageOfferedBy" name="packageOfferedBy" class="form-control" value="{{patientObj.packageOfferedBy}}"
+                        />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="modifiedBy">Modified By</label>
+                        <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{patientObj.modifiedBy}}" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="advance">Advance Paid on admission</label>
+                        <input type="text" id="advance" name="advance" class="form-control" value="{{patientObj.advanceAmount}}" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="dischargedBy">Discharged By</label>
+                        <input type="text" id="dischargedBy" name="dischargedBy" class="form-control" value="{{patientObj.dischargedBy}}" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="referer">Referer Name</label>
+                        <input type="text" id="referer" name="referer" class="form-control" value="{{patientObj.referer}}" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="refererAmount">Referer Phone No</label>
+                        <input type="text" id="refererPhone" name="refererPhone" class="form-control" value="{{patientObj.refererPhone}}" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="refererAmount">Referer Amount</label>
+                        <input type="text" id="refererAmount" name="refererAmount" class="form-control" value="{{patientObj.refererAmount}}" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary btn-lg">Update Patient Details</button>
+                    <a href="/settings" class="btn btn-secondary btn-lg ml-auto">Cancel</a>
+                </div>
+            </form>
+        </div>
+        {{/if}}
+    </section>
+
+    <section class="mt-3">
+        <div class="row">
+            <div class="col border p-2">
+                <span class="h5 p-2">Block a user</span>
+            </div>
+        </div>
+        <div class="row border p-4">
+            <table class="table table-responsive-sm table-striped" id="blockUser">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Blocked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                        {{#compare this.username "!=" "admin"}}
+                        <tr>
+                            <td><span class="js-user">{{this.username}}</span></td>
+                            <td><input type="checkbox" name="blocked" class="form-check-input big-checkbox ml-2" {{#compare this.isBlocked "==" true}}checked{{/compare}} /></td>
+                        </tr>
+                        {{/compare}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

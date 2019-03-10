@@ -1,0 +1,93 @@
+<div class="container">
+    <form action="/getpaymentdetails" method="post">
+        <h2>Enter Dates below to see all payments details</h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Start Date <span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="date" id="startdate" name="startpaydate" max="3000-12-31" min="1000-01-01" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>End Date <span class="text-align-top red-color">&nbsp;*</span></label>
+                <input type="date" id="enddate" name="endpaydate" min="1000-01-01" max="3000-12-31" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <button type="submit" class="btn btn-primary btn-lg m-auto">Get All Payment Details</button>
+        </div>
+    </form>
+    <div>
+        {{#if allPayArrCash}}
+        <h3>Cash: </h3>
+        <div class="row font-weight-bold">
+            <div class="col-2 border">Pt. Reg. Id</div>
+            <div class="col-6 border">Patient Name</div>
+            <div class="col-2 border">Invoice Date</div>
+            <div class="col-2 border">Transaction</div>
+        </div>
+        {{/if}}
+        {{#each allPayArrCash}}
+            <div class="row">
+                <div class="col-2 border pt-1 pb-1">{{this.registrationid}}</div>
+                <div class="col-6 border pt-1 pb-1 item">{{this.patientName}}</div>
+                <div class="col-2 border pt-1 pb-1 day">{{this.invoiceDate}}</div>
+                <div class="col-2 border pt-1 pb-1 rate">{{this.paidAmount}}</div>
+            </div>
+        {{/each}}
+        {{#if allPayArrCash}}
+        <div class="row font-weight-bold">
+            <div class="col-10 text-right">Total: </div>
+            <div class="col-2 border">{{totalCash}}</div>
+        </div>
+        {{/if}}
+    </div>
+    <div>
+        {{#if allPayArrCard}}
+        <h3>Card: </h3>
+        <div class="row font-weight-bold">
+            <div class="col-2 border">Pt. Reg. Id</div>
+            <div class="col-6 border">Patient Name</div>
+            <div class="col-2 border">Invoice Date</div>
+            <div class="col-2 border">Transaction</div>
+        </div>
+        {{/if}}
+        {{#each allPayArrCard}}
+            <div class="row">
+                <div class="col-2 border pt-1 pb-1">{{this.registrationid}}</div>
+                <div class="col-6 border pt-1 pb-1 item">{{this.patientName}}</div>
+                <div class="col-2 border pt-1 pb-1 day">{{this.invoiceDate}}</div>
+                <div class="col-2 border pt-1 pb-1 rate">{{this.paidAmount}}</div>
+            </div>
+        {{/each}}
+        {{#if allPayArrCard}}
+        <div class="row font-weight-bold">
+            <div class="col-10 text-right">Total: </div>
+            <div class="col-2 border">{{totalCard}}</div>
+        </div>
+        {{/if}}
+    </div>
+    <div>
+        {{#if allPayArrOther}}
+        <h3>Other: </h3>
+        <div class="row font-weight-bold">
+            <div class="col-2 border">Pt. Reg. Id</div>
+            <div class="col-6 border">Patient Name</div>
+            <div class="col-2 border">Invoice Date</div>
+            <div class="col-2 border">Transaction</div>
+        </div>
+        {{/if}}
+        {{#each allPayArrOther}}
+            <div class="row">
+                <div class="col-2 border pt-1 pb-1">{{this.registrationid}}</div>
+                <div class="col-6 border pt-1 pb-1 item">{{this.patientName}}</div>
+                <div class="col-2 border pt-1 pb-1 day">{{this.invoiceDate}}</div>
+                <div class="col-2 border pt-1 pb-1 rate">{{this.paidAmount}}</div>
+            </div>
+        {{/each}}
+        {{#if allPayArrOther}}
+        <div class="row font-weight-bold">
+            <div class="col-10 text-right">Total: </div>
+            <div class="col-2 border">{{totalOther}}</div>
+        </div>
+        {{/if}}
+    </div>
+</div>

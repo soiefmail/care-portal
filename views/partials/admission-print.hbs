@@ -1,0 +1,180 @@
+<div class="container-fluid border pt-2 pb-2 pr-4 pl-4 print-container">
+    <div class="row">
+        <div class="col h3 text-center">PATIENT ADMISSION</div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 border p-2">
+            <span>Pt. Reg. Id: </span>
+            <span class="lead">{{patientObj.regId}}</span>
+        </div>
+        <div class="col-5 border p-2">
+            <span>Date of Admission: </span>
+            <span class="lead">{{patientObj.admitDate}}</span>
+        </div>
+        <div class="col-3 border p-2">
+            <span>Modified By: </span>
+            {{#if patientObj.isAdmitted}}                
+            <span class="lead">{{patientObj.modifiedBy}}</span>
+            {{else}}
+            <span class="lead">{{loggedInUser}}</span>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="row mt-1">
+        <div class="col h5 text-center bg-light">PATIENT DETAILS</div>
+    </div>
+
+    <div class="row">
+        <div class="col border p-2">
+            <span>Patient Name: </span>
+            <span class="lead">{{patientObj.patientName}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Under Doctor: </span>
+            <span class="lead">{{patientObj.underDoctor}}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 border p-2">
+            <span>Suffereing From Disease: </span>
+            <span class="lead">{{patientObj.sufferingFrom}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Sex: </span>
+            <span class="lead">{{patientObj.sex}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Age: </span>
+            <span class="lead">{{patientObj.age}}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 border p-2">
+            <span>Guardian Name: </span>
+            <span class="lead">{{patientObj.guardianName}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Relation with Guardian: </span>
+            <span class="lead">{{patientObj.realationWithGuardian}}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 border p-2">
+            <span>Who Bought the Patient: </span>
+            <span class="lead">{{patientObj.whoBoughtPatient}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>And Relation with Patient: </span>
+            <span class="lead">{{patientObj.relationWithPatient}}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 border p-2">
+            <span>Aadhar No / Social Security Id: </span>
+            <span class="lead">{{patientObj.aadharVoterId}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Admission Type: </span>
+            <span class="lead">{{patientObj.admissionType}}</span>
+        </div>
+        <div class="col border p-2">
+            <span>Payment Type: </span>
+            <span class="lead">{{patientObj.paymentType}}</span>
+        </div>
+    </div>
+
+    <div class="mt-3 p-1">
+        <div class="row">Address Details</div>
+
+        <div class="row border border-bottom-0">
+            <div class="col p-2">
+                <span>Village: </span>
+                <span>{{patientObj.village}}</span>
+            </div>
+            <div class="col p-2">
+                <span>Post Office: </span>
+                <span>{{patientObj.postOffice}}</span>
+            </div>
+        </div>
+
+        <div class="row border border-top-0 border-bottom-0">
+            <div class="col p-2">
+                <span>Police Station: </span>
+                <span>{{patientObj.policeStation}}</span>
+            </div>
+            <div class="col p-2">
+                <span>District: </span>
+                <span>{{patientObj.district}}</span>
+            </div>
+            <div class="col p-2">
+                <span>State: </span>
+                <span>{{patientObj.state}}</span>
+            </div>
+        </div>
+
+        <div class="row border border-top-0">
+            <div class="col p-2">
+                <span>Phone(Primary): </span>
+                <span class="lead">{{patientObj.primaryPhoneNo}}</span>
+            </div>
+            <div class="col p-2">
+                <span>Phone(Secondary): </span>
+                <span class="lead">{{patientObj.secondaryPhoneNo}}</span>
+            </div>
+            <div class="col p-2">
+                <span>Email Id: </span>
+                <span class="lead">{{patientObj.email}}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5 p-3">
+        <div class="row h5">CONSENT TO MEDICAL AND SURGICAL PROCEDURES</div>        
+        <div class="row">
+            <div class="col-1 text-right">1. </div>
+            <div class="col">
+                I, <span class="blockquote"><u>{{patientObj.guardianName}}</u></span>, giving assent for operation/treatment of <span class="blockquote"><u>{{patientObj.patientName}}</u></span>.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 text-right">2. </div>
+            <div class="col">
+                I will be obliged to adhere all the terms and conditions of the HealthCare Center.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 text-right">3. </div>
+            <div class="col">
+                For any kind of accidental or critical situation, I will not hold HealthCare Center responsible.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 text-right">4. </div>
+            <div class="col">
+                I am giving consent for anesthesia for the patient if required. For any accident/death caused due to anesthesia, doctors or the HealthCare Center will not be held responsible.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 text-right">5. </div>
+            <div class="col">
+                I am giving consent to the doctors for _ _ _ _ _ _ _ _ _ _  amputation if needed.
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-4">
+        <div class="row">
+            <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Patient Signature</div>
+            <div class="col"></div>
+            <div class="col pt-2 border border-dark border-bottom-0 border-right-0 border-left-0 text-center">Guardian Signature</div>
+        </div>
+    </div>
+
+</div>

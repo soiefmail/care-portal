@@ -1,0 +1,99 @@
+<div class="container ">
+
+    <div class="text-center h4">Advance</div>
+    <form>
+        <div class="form-row">
+             <div class="form-group col-md-6">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="regId">Registration Id</label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="modifiedBy">Advance Taken By</label>
+                {{#if advanceDocs.modifiedBy}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{advanceDocs.modifiedBy}}" readonly />
+                {{else}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{loggedInUser}}" readonly />
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="packageOffered">Package Agreement amount</label>
+                <input type="text" id="packageOffered" name="packageOffered" class="form-control" value="{{patientObj.packageAmount}}" readonly />
+            </div>
+             <div class="form-group col-md-6">
+                <label for="paymenttype">Payment Type</label>
+                <select id="paymenttype" name="paymentType" class="form-control" readonly >
+                    <option value="{{patientObj.paymentType}}" selected>{{patientObj.paymentType}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <p class="h5">Enter Advances</p>
+        </div>
+        <div id="advances-table-header">
+            <div class="row font-weight-bold">
+                <div class="col-6 border">Advances</div>
+                <div class="col-4 border">Date</div>
+                <div class="col-2 border">Advance Amount</div>
+            </div>
+        </div>
+        
+        <div id="advances">
+            {{#if advanceDocs}}
+                {{#each advanceDocs.advanceList }}
+                    <div class="row">
+                        <div class="col-6 border pt-1 pb-1 advance">{{this.advance}}</div>
+                        <div class="col-4 border pt-1 pb-1 date">{{this.date}}</div>
+                        <div class="col-2 border pt-1 pb-1 advanceAmount">{{this.advanceAmount}}</div>
+                    </div>
+                {{/each}}
+                {{#math "1" "+" advanceDocs.advanceList.length }}
+                    {{#times this 16}}
+                        <div class="row">
+                            <div contenteditable="true" class="col-6 border pt-1 pb-1 advance"></div>
+                            <div contenteditable="true" class="col-4 border pt-1 pb-1 date"></div>
+                            <div contenteditable="true" class="col-2 border pt-1 pb-1 advanceAmount"></div>
+                        </div>
+                    {{/times}}
+                {{/math}}
+
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total Advance:</b></div>
+                    <div id="totalAdvanceAmount" class="col-2 border pt-1 pb-1">{{advanceDocs.totalAdvanceAmount}}</div>                                   
+                </div>
+            {{else}}
+                <!--<div class="row">
+                    <div class="col-6 border pt-1 pb-1 advance">Advance paid at the time of Admission</div>
+                    <div class="col-4 border pt-1 pb-1 date">{{#if patientObj.admitDate}}{{patientObj.admitDate}}{{else}}-{{/if}}</div>
+                    <div class="col-2 border pt-1 pb-1 advanceAmount">{{#if patientObj.advanceAmount}}{{patientObj.advanceAmount}}{{else}}0{{/if}}</div>
+                </div>-->
+                {{#times 1 16}}                   
+                    <div class="row">
+                        <div contenteditable="true" class="col-6 border pt-1 pb-1 advance"></div>
+                        <div contenteditable="true" class="col-4 border pt-1 pb-1 date"></div>
+                        <div contenteditable="true" class="col-2 border pt-1 pb-1 advanceAmount"></div>
+                    </div>
+                {{/times}}
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total Advance:</b></div>
+                    <div id="totalAdvanceAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="form-row mt-2">
+            <button onclick="printPage('printableArea')" class="btn btn-primary btn-lg m-auto">Save and Print Advance Payment</button>            
+        </div>
+        <div class="form-row mt-2">
+            <div id="savemessage" class="m-auto h5"></div>
+        </div>
+    </form>
+
+</div>
+{{>advance-print}}

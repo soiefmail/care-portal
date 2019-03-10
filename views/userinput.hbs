@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row pt-4">
+        <p class="h3 m-auto">{{ message }}</p>
+    </div> 
+    <div class="row pt-4">
+        <div class="m-auto col-4">
+            <input type="text" id="userinputid" class="form-control" value="{{localRegId}}"/>            
+        </div>
+    </div>
+    <div class="row pt-4">
+        <button onclick="userinputSubmit('{{pageToRedirect}}')" value="{{btnName}}" class="btn btn-primary btn-lg m-auto">{{btnName}}</button> 
+    </div>
+    <div class="row pt-4">
+        {{#compare pageToRedirect "===" "patientdetails"}}
+        {{!-- <button onclick="getUserInvoice('{{pageToRedirect}}')" value="getInvoice" class="btn btn-primary btn-lg m-auto">Get Invoice Details</button> --}}
+        {{/compare}}
+    </div>
+</div>

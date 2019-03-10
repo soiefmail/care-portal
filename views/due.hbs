@@ -1,0 +1,94 @@
+<div class="container ">
+
+    <div class="text-center h4">Due</div>
+    <form>
+        <div class="form-row">
+             <div class="form-group col-md-6">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control" value="{{patientObj.patientName}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="regId">Registration Id</label>
+                <input type="text" id="regId" name="regId" class="form-control" value="{{patientObj.registrationid}}" readonly />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="modifiedBy">Modified By</label>
+                {{#if dueDocs.modifiedBy}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{dueDocs.modifiedBy}}" readonly />
+                {{else}}
+                <input type="text" id="modifiedBy" name="modifiedBy" class="form-control" value="{{loggedInUser}}" readonly />
+                {{/if}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="packageOffered">Paid Amount</label>
+                <input type="text" id="packageOffered" name="packageOffered" class="form-control" value="{{invoiceDocs.paidAmount}}" readonly />
+            </div>
+             <div class="form-group col-md-6">
+                <label for="paymenttype">Payment Type</label>
+                <select id="paymenttype" name="paymentType" class="form-control" readonly >
+                    <option value="{{patientObj.paymentType}}" selected>{{patientObj.paymentType}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <p class="h5">Enter Dues</p>
+        </div>
+        <div id="dues-table-header">
+            <div class="row font-weight-bold">
+                <div class="col-6 border">Dues</div>
+                <div class="col-4 border">Date</div>
+                <div class="col-2 border">Due Amount</div>
+            </div>
+        </div>
+        
+        <div id="dues">
+            {{#if dueDocs}}
+                {{#each dueDocs.dueList }}
+                    <div class="row">
+                        <div class="col-6 border pt-1 pb-1 due">{{this.due}}</div>
+                        <div class="col-4 border pt-1 pb-1 dueDate">{{this.date}}</div>
+                        <div class="col-2 border pt-1 pb-1 dueAmount">{{this.dueAmount}}</div>
+                    </div>
+                {{/each}}
+                {{#math "1" "+" dueDocs.dueList.length }}
+                    {{#times this 16}}
+                        <div class="row">
+                            <div contenteditable="true" class="col-6 border pt-1 pb-1 due"></div>
+                            <div contenteditable="true" class="col-4 border pt-1 pb-1 dueDate"></div>
+                            <div contenteditable="true" class="col-2 border pt-1 pb-1 dueAmount"></div>
+                        </div>
+                    {{/times}}
+                {{/math}}
+
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total Due:</b></div>
+                    <div id="totalDueAmount" class="col-2 border pt-1 pb-1">{{dueDocs.totalDueAmount}}</div>                                   
+                </div>
+            {{else}}
+                {{#times 1 16}}                   
+                    <div class="row">
+                        <div contenteditable="true" class="col-6 border pt-1 pb-1 due"></div>
+                        <div contenteditable="true" class="col-4 border pt-1 pb-1 dueDate"></div>
+                        <div contenteditable="true" class="col-2 border pt-1 pb-1 dueAmount"></div>
+                    </div>
+                {{/times}}
+                <div class="row calc">
+                    <div class="col-10 pt-1 pb-1 text-right"><b>Total Due:</b></div>
+                    <div id="totalDueAmount" class="col-2 border pt-1 pb-1"></div>                                   
+                </div>
+            {{/if}}
+        </div>
+
+        <div class="form-row mt-2">
+            <button onclick="printPage('printableArea')" class="btn btn-primary btn-lg m-auto">Save and Print Due Payment</button>            
+        </div>
+        <div class="form-row mt-2">
+            <div id="savemessage" class="m-auto h5"></div>
+        </div>
+    </form>
+
+</div>
+{{>due-print}}

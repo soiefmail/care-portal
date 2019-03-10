@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row pt-4">
+        <p class="h3 m-auto alert alert-info">{{ message }}</p>
+    </div>
+    <div class="row pt-4">
+            <button onclick="printPage('printableArea')" value="print a div!" class="btn btn-primary btn-lg m-auto">{{ printbtn }}</button>
+            {{#compare page "===" "registration"}}
+                <button onclick="goToFunc('package', '{{patientObj.regId}}')" value="Proceed To Package Declaration" class="btn btn-primary btn-lg m-auto">Proceed To Package Declaration</button>             
+            {{/compare}}
+            {{#compare page "===" "package"}}
+                <button onclick="goToFunc('admit', '{{patientObj.regId}}')" value="Proceed To Patient Admit" class="btn btn-primary btn-lg m-auto">Proceed To Patient Admit</button>             
+            {{/compare}}
+            {{#compare page "===" "admission"}}
+                <button onclick="goToFunc('invoice', '{{patientObj.regId}}')" value="Proceed To Invoice" class="btn btn-primary btn-lg m-auto">Proceed To Invoice</button>          
+            {{/compare}}
+    </div>
+    <div id="printableArea" class="d-none">
+        {{>titlebar}}
+
+        {{#compare page "===" "registration"}} 
+            {{>registration-print}} 
+        {{/compare}}
+
+        {{#compare page "===" "package"}} 
+            {{>package-print}} 
+        {{/compare}}
+
+        {{#compare page "===" "admission"}} 
+            {{>admission-print}} 
+        {{/compare}}
+
+        {{#compare page "===" "discharge"}} 
+            {{>discharge-print}} 
+        {{/compare}}
+    </div>
+
+</div>
