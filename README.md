@@ -33,7 +33,7 @@ Through this application, you can take care of a patient's admission to discharg
     # <Note: Provide your system password in case it's asking>
     ```
     **Reference**: https://treehouse.github.io/installation-guides/mac/mongo-mac.html .
-    **Note**: To stop the Mongo daemon hit ctrl-c (control key + 'c' button).
+    ⋅⋅⋅**Note**: To stop the Mongo daemon hit ctrl-c (control key + 'c' button).
 3. Install nodeJS v8 using brew. Run below command in terminal -
     ```
     brew install node@8
@@ -114,7 +114,7 @@ ipconfig/all
 - Start your application.
 - Sign Up / New Registration of user(Healthcare agent or admin):
 By default signup page is available for new registration. If you want to deactivate the registration process, comment 'signup' route in "../care-portal/routes/index.js". It's recommended to create an 'admin' user as it has special rights privileges in the settings.
-    Sample shot for Sign Up Page:
+⋅⋅⋅Sample shot for Sign Up Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/signup.png "Sign Up")
 
     In case you try to enter a duplicate user id, you will get error as shown below:
