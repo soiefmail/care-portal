@@ -115,44 +115,44 @@ ipconfig/all
 - Sign Up / New Registration of user(Healthcare agent or admin):
 By default signup page is available for new registration. If you want to deactivate the registration process, comment 'signup' route in "../care-portal/routes/index.js". It's recommended to create an 'admin' user as it has special rights privileges in the settings.
 Sample shot for Sign Up Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/signup.png "Sign Up")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/signup.png "Sign Up")
 
     In case you try to enter a duplicate user id, you will get error as shown below:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/duplicateUser.png "Duplicate User")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/duplicateUser.png "Duplicate User")
 
 - Login / Sign In:
 User can login using the credentials created during sign up.
 Sample shot for Login Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/login.png "Login")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/login.png "Login")
 
 - Reset Password:
 Any user can change the password by clicking on 'Change Password' button in login page.
 Sample shot for Change Password Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/changePassword.png "Change Password")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/changePassword.png "Change Password")
 
 -  Home page or Menu Page gives you the options to select your operation.
 Sample shot for Home Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/home.png "Home")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/home.png "Home")
 
 - Registration for a new patient:
 Register a new patient. An auto generated unique id will be shown in the Registration Id box.
 For example, "1/CARE/IPD/03/2019" where 1st digit denotes the incremental serial id, 2nd one denotes healthcare name, 3rd one denotes admission type(i.e. IPD or OPD), 4th and 5th one denote current month and year. This sequence makes this is a unique id which could help you to fetch or modify any patient record. The 'Date of Registration' field also gets auto-populated based on your locale. On successful patient registration, you can take a print out by clicking the 'Print Registration Form' button.
 Sample shot for Registration Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/registrationPage.png "Registration")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/registrationPage.png "Registration")
 
     Sample shot for Registration Success Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/registrationPageSuccess.png "Registration Success")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/registrationPageSuccess.png "Registration Success")
 
     Sample shot for Print Preview of Registration Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/printRegistration.png "Print Registration")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/printRegistration.png "Print Registration")
 
 - Package Declaration:
 You may keep a note here for the offered package.
 Sample shot for Package Offered Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/package.png "Package")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/package.png "Package")
 
     Sample shot for Print Package Preview:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/printPackage.png "Print Package")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/printPackage.png "Print Package")
 
 - Advance Page:
 You may keep a note of the advance taken from the patient party and print out the receipt.
@@ -160,15 +160,15 @@ You may keep a note of the advance taken from the patient party and print out th
 - Patient Admission Page:
 This page is used to admit the registered patient to your healthcare center. Here you may declare the name of the referrer who took commission and bought the patient.
 Sample shot for Admission Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/admission.png "Admission")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/admission.png "Admission")
 
 - Invoice Generation Page:
 This page is used to generate invoice. Just fill the particular in the table and the corresponding amount will be auto-calculated.
 Sample shot for Invoice Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/invoice.png "Invoice")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/invoice.png "Invoice")
 
     Sample shot for Invoice Receipt Print Preview:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/printInvoice.png "Invoice Print")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/printInvoice.png "Invoice Print")
 
 - Due Page:
 You may keep a note here if any due from patient party is pending.
@@ -176,7 +176,7 @@ You may keep a note here if any due from patient party is pending.
 - Get All Payment Details Page:
 You can fetch all the transaction details of all patients in a consolidated table. You just need to provide start date and end date to fetch the details within that given date.
 Sample shot for Get All Payment Details Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/getAllPayments.png "Get All Payments")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/getAllPayments.png "Get All Payments")
 
 - Update Aadhar Card Page:
 You can modify your aadhar id / Voter Card Id / Social Security Id from this page.
@@ -184,7 +184,7 @@ You can modify your aadhar id / Voter Card Id / Social Security Id from this pag
 - Settings Page:
 Only an admin can open this page. You can see memory allocation for different mongodb collections. You can a delete a patient also. This delete is a soft delete. The deleted record will be saved in 'DeletedPatient' collection. An admin can change/modify an admitted patient details. Other users are not authorised to do that. An admin can block any particular user/agent's user id to revoke the access of that user/agent.
 Sample shot for Settings Page:
-![alt text](https://github.com/soiefmail/care-portal/tree/master/screenshots/settings.png "Settings")
+![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/settings.png "Settings")
 
 
 ## Tools / Softwares Used
