@@ -32,8 +32,8 @@ Through this application, you can take care of a patient's admission to discharg
     sudo chown -R `id -un` /data/db
     # <Note: Provide your system password in case it's asking>
     ```
-    Reference: https://treehouse.github.io/installation-guides/mac/mongo-mac.html
-    Note: To stop the Mongo daemon hit ctrl-c (control key + 'c' button).
+    **Reference**: https://treehouse.github.io/installation-guides/mac/mongo-mac.html .
+    **Note**: To stop the Mongo daemon hit ctrl-c (control key + 'c' button).
 3. Install nodeJS v8 using brew. Run below command in terminal -
     ```
     brew install node@8
@@ -73,7 +73,7 @@ Through this application, you can take care of a patient's admission to discharg
     npm stop
     # <Note: Provide your system password in case it's asking>
     ```
-    Note: Next time when you want to open your application, just navigate to your working folder/repo as stated above and run npm start/stop in terminal.
+    **Note**: Next time when you want to open your application, just navigate to your working folder/repo as stated above and run npm start/stop in terminal.
 
 ###  Installation Guide for Windows
 1. Install node/npm v8.11.3 from https://nodejs.org/en/blog/release/v8.11.3/ . Select your windows version (32 bit or 63 bit), download and install.
@@ -102,9 +102,9 @@ Through this application, you can take care of a patient's admission to discharg
     Application will be opened in your favourite browser automatically. In case you face issues with that, you may go to "http://localhost:3000/" in your preferred browser.
 9.  To stop the application, close all the command prompt windows and double click on STOP_Care_Portal_Windows.bat.
 
-    Note: Next time when you want to open your application, just double click on START_Care_Portal_Windows.bat to start and double click on STOP_Care_Portal_Windows.bat to stop. Additionally you may create desktop shortcuts of these two bat files.
+    **Note**: Next time when you want to open your application, just double click on START_Care_Portal_Windows.bat to start and double click on STOP_Care_Portal_Windows.bat to stop. Additionally you may create desktop shortcuts of these two bat files.
 
-## Run the application in several machine
+## Run the application in several machines
 You may run this healthcare application in different machines. To do this, you have to make one system as your server machine where the application will run all the time. And to access it in a separate computer within the same network, you have to get the ipv4 address of the main computer where application is running and put it into the browser address bar of the other machines followed by ':3000'. For example the URL should look like '192.168.1.104:3000'. In windows run the below command in command prompt to get ipv4 address:
 ```
 ipconfig/all
@@ -114,7 +114,7 @@ ipconfig/all
 - Start your application.
 - Sign Up / New Registration of user(Healthcare agent or admin):
 By default signup page is available for new registration. If you want to deactivate the registration process, comment 'signup' route in "../care-portal/routes/index.js". It's recommended to create an 'admin' user as it has special rights privileges in the settings.
-Sample shot for Sign Up Page:
+    Sample shot for Sign Up Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/signup.png "Sign Up")
 
     In case you try to enter a duplicate user id, you will get error as shown below:
@@ -122,22 +122,22 @@ Sample shot for Sign Up Page:
 
 - Login / Sign In:
 User can login using the credentials created during sign up.
-Sample shot for Login Page:
+    Sample shot for Login Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/login.png "Login")
 
 - Reset Password:
 Any user can change the password by clicking on 'Change Password' button in login page.
-Sample shot for Change Password Page:
+    Sample shot for Change Password Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/changePassword.png "Change Password")
 
 -  Home page or Menu Page gives you the options to select your operation.
-Sample shot for Home Page:
+    Sample shot for Home Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/home.png "Home")
 
 - Registration for a new patient:
 Register a new patient. An auto generated unique id will be shown in the Registration Id box.
 For example, "1/CARE/IPD/03/2019" where 1st digit denotes the incremental serial id, 2nd one denotes healthcare name, 3rd one denotes admission type(i.e. IPD or OPD), 4th and 5th one denote current month and year. This sequence makes this is a unique id which could help you to fetch or modify any patient record. The 'Date of Registration' field also gets auto-populated based on your locale. On successful patient registration, you can take a print out by clicking the 'Print Registration Form' button.
-Sample shot for Registration Page:
+    Sample shot for Registration Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/registrationPage.png "Registration")
 
     Sample shot for Registration Success Page:
@@ -148,7 +148,7 @@ Sample shot for Registration Page:
 
 - Package Declaration:
 You may keep a note here for the offered package.
-Sample shot for Package Offered Page:
+    Sample shot for Package Offered Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/package.png "Package")
 
     Sample shot for Print Package Preview:
@@ -159,12 +159,12 @@ You may keep a note of the advance taken from the patient party and print out th
 
 - Patient Admission Page:
 This page is used to admit the registered patient to your healthcare center. Here you may declare the name of the referrer who took commission and bought the patient.
-Sample shot for Admission Page:
+    Sample shot for Admission Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/admission.png "Admission")
 
 - Invoice Generation Page:
 This page is used to generate invoice. Just fill the particular in the table and the corresponding amount will be auto-calculated.
-Sample shot for Invoice Page:
+    Sample shot for Invoice Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/invoice.png "Invoice")
 
     Sample shot for Invoice Receipt Print Preview:
@@ -175,7 +175,7 @@ You may keep a note here if any due from patient party is pending.
 
 - Get All Payment Details Page:
 You can fetch all the transaction details of all patients in a consolidated table. You just need to provide start date and end date to fetch the details within that given date.
-Sample shot for Get All Payment Details Page:
+    Sample shot for Get All Payment Details Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/getAllPayments.png "Get All Payments")
 
 - Update Aadhar Card Page:
@@ -183,7 +183,7 @@ You can modify your aadhar id / Voter Card Id / Social Security Id from this pag
 
 - Settings Page:
 Only an admin can open this page. You can see memory allocation for different mongodb collections. You can a delete a patient also. This delete is a soft delete. The deleted record will be saved in 'DeletedPatient' collection. An admin can change/modify an admitted patient details. Other users are not authorised to do that. An admin can block any particular user/agent's user id to revoke the access of that user/agent.
-Sample shot for Settings Page:
+    Sample shot for Settings Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/settings.png "Settings")
 
 
