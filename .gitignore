@@ -1,0 +1,9 @@
+screenshots/
+node_modules/
+bower_components/
+package-lock.json
+
+# OS X Finder internal system files
+_DS_Store
+.vscode
+.DS_Store
