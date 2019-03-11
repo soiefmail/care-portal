@@ -114,7 +114,7 @@ ipconfig/all
 ## User Manual
 - Start your application.
 - Sign Up / New Registration of user(Healthcare agent or admin):
-By default signup page is available for new registration. If you want to deactivate the registration process, comment 'signup' route in "../care-portal/routes/index.js". It's recommended to create an 'admin' user as it has special rights privileges in the settings.
+By default signup page is available for new registration but any link to that page is not introduced for security reason. Visit "localhost:3000/signup" in your browser to create a new user id. If you want to deactivate the registration process, comment 'signup' route in "../care-portal/routes/index.js". It's recommended to create an 'admin' user as it has special rights privileges in the settings.
 
     Sample shot for Sign Up Page:
 ![alt text](https://github.com/soiefmail/care-portal/blob/master/screenshots/signup.png "Sign Up")
