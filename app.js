@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 
 var app = express();
-mongoose.connect('mongodb+srv://admin:'+ process.env.MONGO_ATLAS_PW +'@cluster0-2jycn.mongodb.net/patientdb?retryWrites=true',{ useNewUrlParser: true });
+mongoose.connect('mongodb+srv://admin:admin@cluster0-2jycn.mongodb.net/patientdb?retryWrites=true',{ useNewUrlParser: true });
 
 var db = mongoose.connection;
 

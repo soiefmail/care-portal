@@ -1,1 +1,1 @@
-web: MONGO_ATLAS_PW=admin node ./bin/www
+web: node ./bin/www
