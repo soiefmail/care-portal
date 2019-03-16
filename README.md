@@ -18,10 +18,10 @@ Through this application, you can take care of a patient's admission to discharg
 
 # Demo / Example
 Check out the link below to get a hands on experience:
-https://care-health-portal.herokuapp.com
-You may sign up (new registration) there but to access all the controls, you need admin access. For admin access use below credential.
-Username: admin
-Password: admin123
+...https://care-health-portal.herokuapp.com
+...You may sign up (new registration) there but to access all the controls, you need admin access. For admin access use below credential.
+...Username: admin
+...Password: admin123
 
 ## How to install it
 ###  Installation Guide for Mac OS X
