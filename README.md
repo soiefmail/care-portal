@@ -74,7 +74,7 @@ Password: **admin123**
     ```
 8. Install forever server globally. Execute-
     ```
-    sudo npm install forever --global
+    sudo npm install forever -g
     # <Note: Provide your system password in case it's asking>
     ```
 9. Run your application -
@@ -119,7 +119,7 @@ Password: **admin123**
     ```
 7. Install forever server globally. Execute-
     ```
-    npm install forever --global
+    sudo npm install forever -g
     ```
 8. Double click on START_Care_Portal_Windows.bat to start
     Application will be opened in your favourite browser automatically. In case you face issues with that, you may go to "http://localhost:3000/" in your preferred browser.
