@@ -17,11 +17,11 @@ Through this application, you can take care of a patient's admission to discharg
 * Automated invoice, dues calculation based on advance paid and amount paid at the time of billing. 
 
 ## Demo / Example
-Check out the link below to get a hands on experience:
-  https://care-health-portal.herokuapp.com
-  You may sign up (new registration) there but to access all the controls, you need admin access. For admin access use below credential.
-  Username: admin
-  Password: admin123
+Check out the link below to get a hands on experience:  
+https://care-health-portal.herokuapp.com
+You may sign up (new registration) there but to access all the controls, you need admin access. For admin access use below credential.  
+Username: admin  
+Password: admin123
 
 ## How to install it
 ###  Installation Guide for Mac OS X
