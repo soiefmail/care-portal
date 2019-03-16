@@ -4,10 +4,6 @@
   "version": "1.0.0",
   "author": "Soief Ali <soiefmail@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "sudo -S brew services start mongodb && forever cleanlogs && forever start -o out.log -e err.log ./bin/www && sleep 1 && open http://localhost:3000",
-    "stop": "sudo -S brew services stop mongodb && forever stop ./bin/www"
-  },
   "dependencies": {
     "bcrypt": "^2.0.1",
     "cookie-parser": "^1.4.3",

@@ -1,9 +1,5 @@
 var Invoice = require('../models/invoice');
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/patientdb');
-
 module.exports = function (res, invoiceObj) {
     var updateData = {
         invoiceDate: invoiceObj.invoiceDate,

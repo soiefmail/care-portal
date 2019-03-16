@@ -1,9 +1,5 @@
 var Advance = require('../models/advance');
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/patientdb');
-
 module.exports = function (res, advanceObj) {
     var updateData = {
         advanceList: advanceObj.advanceList,

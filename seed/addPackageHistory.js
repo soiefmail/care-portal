@@ -1,9 +1,5 @@
 var PackageHistory = require('../models/packageHistory');
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/patientdb');
-
 module.exports = function (packageObj) {
     new PackageHistory({
         registrationId: packageObj.registrationId,

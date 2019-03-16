@@ -1,9 +1,5 @@
 var Due = require('../models/due');
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/patientdb');
-
 module.exports = function (res, dueObj) {
     new Due({
         registrationid: dueObj.regId,
