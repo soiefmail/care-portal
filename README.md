@@ -47,7 +47,13 @@ Password: **admin123**
     ```
     brew install node@8
     ```
-4. Download or clone care-portal repo in your local and navigate to care-portal folder in terminal. For Example you may use below command - 
+4. Download or clone (Use- git clone https://github.com/soiefmail/care-portal.git) care-portal repo in your local.  
+   In case you want to clone care-portal repo, use below command -
+   ```
+   git clone https://github.com/soiefmail/care-portal.git
+   ```
+   
+   Now navigate to care-portal folder in terminal. For Example you may use below command - 
     ```
     cd /Users/<YOUR SYSTEM ID>/Downloads/care-portal
     ```
@@ -87,10 +93,18 @@ Password: **admin123**
 ###  Installation Guide for Windows
 1. Install node/npm v8.11.3 from https://nodejs.org/en/blog/release/v8.11.3/ . Select your windows version (32 bit or 63 bit), download and install.
 2. Install mongodb 3.2 from https://www.mongodb.com/download-center/community . Select the version as 3.2. Download and install.
-3. Download or clone care-portal repo in your local and navigate to care-portal folder in your command prompt. You can use below command-
+3. Download or clone (Use- git clone https://github.com/soiefmail/care-portal.git) care-portal repo in your local.  
+   In case you want to clone care-portal repo, use below command -
+   ```
+   git clone https://github.com/soiefmail/care-portal.git
+   ```
+   
+   Now navigate to care-portal folder in terminal. For Example you may use below command - 
     ```
-    cd <PATH/care-portal>
+    cd /Users/<YOUR SYSTEM ID>/Downloads/care-portal
     ```
+    or,
+    type 'cd ' in terminal and drag and drop 'care-portal' into it.
 4. Run-
     ```
     npm i
